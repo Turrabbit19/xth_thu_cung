@@ -1,5 +1,5 @@
 <div class="shadow bg-light pb-5 mt-4 ms-4 col-md-8">
-    <h4 class="p-3">Danh sách danh mục</h4>
+    <h4 class="p-3">Danh sách đơn hàng</h4>
     <hr>
     <div class="d-flex justify-content-between align-items-center">
         <form action="" class="ms-4">
@@ -31,27 +31,21 @@
                 <tr>
                     <th></th>
                     <th scope="col">#</th>
-                    <th scope="col">Ảnh</th>
-                    <th scope="col">Tên danh mục</th>
-                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Đơn của...</th>
                     <th scope="col">Hành động</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($listCgr as $cgr) : ?>
+                <?php foreach ($listBill as $bill) : ?>
                     <tr>
                         <td>
                             <input type="checkbox">
                         </td>
-                        <td scope="row"><?= $cgr->id ?></td>
-                        <td><img src="..." alt=""></td>
+                        <td scope="row"><?= $bill->id ?></td>
                         <td>
-                            <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                <?= $cgr->name ?>
+                            <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 199px;">
+                                <?= $bill->name ?>
                             </div>
-                        </td>
-                        <td>
-                            <span class="badge bg-danger"><?= $cgr->status ?></span>
                         </td>
                         <td>
                             <button class="btn btn-warning">

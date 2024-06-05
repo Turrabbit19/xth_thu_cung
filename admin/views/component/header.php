@@ -39,7 +39,7 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                        <a class="nav-link active text-uppercase" aria-current="page" href="#">Admin</a>
 
                     </div>
                 </div>
@@ -49,8 +49,6 @@
                 <form class="d-flex" role="search">
                     <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
                 </form>
-                <i class="fa-regular fa-heart me-2"></i>
-                <i class="fa-solid fa-cart-shopping me-2"></i>
             </div>
         </div>
         <!-- End header bottom -->

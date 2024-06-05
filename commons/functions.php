@@ -25,4 +25,31 @@
         $product->status = $row['status'];
         return $product;
     }
+
+    function convertToObjCategory($row) {
+        $category = new Category();
+        $category->id = $row['id'];
+        $category->name = $row['name'];
+        $category->image_src = $row['image_src'];
+        $category->status = $row['status'];
+        return $category;
+    }
+
+    function convertToObjAccount($row) {
+        $account = new Account();
+        $account->id = $row['id'];
+        $account->name = $row['name'];
+        $account->address = $row['address'];
+        $account->email = $row['email'];
+        $account->password = $row['password'];
+        $account->role = $row['role'];
+        return $account;
+    }
+
+    function convertToObjBill($row) {
+        $bill = new Bill();
+        $bill->id = $row['id'];
+        $bill->name = $row['name'];
+        return $bill;
+    }
 ?>

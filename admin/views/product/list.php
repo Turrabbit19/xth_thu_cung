@@ -30,7 +30,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">Stt</th>
+                            <th scope="col">#</th>
                             <th scope="col">Ảnh sản phẩm</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Số lượng</th>
@@ -49,7 +49,7 @@
                             <td scope="row"><?= $pro->id ?></td>
                             <td><img src="..." alt=""></td>
                             <td>
-                                <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
                                 <?= $pro->name ?>
                                 </div>
                             </td>
@@ -61,10 +61,15 @@
                                 </div>
                             </td>
                             <td>
-                                <span class="badge bg-danger"><?= $pro->status ?></span>
+                                <?php if($pro->status == 1): ?>
+                                    <span class="badge bg-success">Còn hàng</span>
+                                <?php endif; ?>
+                                <?php if($pro->status == 0): ?>
+                                    <span class="badge bg-danger">Hết hàng</span>
+                                <?php endif; ?>
                             </td>
                             <td>
-                                <button class="btn btn-success">
+                                <button class="btn btn-warning">
                                     <a href="" class="text-white">
                                         <i class="fa-solid fa-pen-to-square"></i> Sửa
                                     </a>
