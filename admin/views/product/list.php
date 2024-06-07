@@ -13,10 +13,11 @@
                     </div>           
                 </form>
                 <div class="me-4">
-                    <button class="btn btn-success">
-                        <i class="fa-solid fa-plus"></i>
-                        <a href="" class="text-light">Thêm</a>
-                    </button>
+                    <a href="../admin/index.php?act=add-pro" class="text-light">
+                        <button class="btn btn-success"> 
+                            <i class="fa-solid fa-plus"></i> Thêm
+                        </button>
+                    </a>
                     <button class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
                         <a href="" class="text-light">Xóa</a>
@@ -34,7 +35,8 @@
                             <th scope="col">Ảnh sản phẩm</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Số lượng</th>
-                            <th scope="col">Giá</th>
+                            <th scope="col">Giá cũ</th>
+                            <th scope="col">Giá mới</th>
                             <th scope="col">Danh mục</th>
                             <th scope="col">Trạng thái</th>
                             <th scope="col">Hành động</th>
@@ -47,14 +49,15 @@
                                 <input type="checkbox">
                             </td>
                             <td scope="row"><?= $pro->id ?></td>
-                            <td><img src="..." alt=""></td>
+                            <td><img src="<?= BASE_URL . $pro->image_src ?>" class="w-100" alt=""></td>
                             <td>
                                 <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
                                 <?= $pro->name ?>
                                 </div>
                             </td>
                             <td><?= $pro->quantity ?></td>
-                            <td><?= $pro->price ?></td>
+                            <td><?= $pro->price_old ?></td>
+                            <td><?= $pro->price_new ?></td>
                             <td>
                                 <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
                                 <?= $pro->category_id ?>

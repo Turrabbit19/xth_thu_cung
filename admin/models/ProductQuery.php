@@ -25,5 +25,15 @@
                 echo "<hr>";
             }
         }
+
+        public function add($name, $description, $price_old, $price_new, $quantity, $image_src, $category_id, $status) {
+            try {
+                $sql = "INSERT INTO product(name,image_src,price_old,price_new,description,quantity,status,category_id ) values('$name','$image_src','$price_old','$price_new','$description','$quantity','$category_id','$status')";
+                pdo_execute($sql);
+            } catch (Exception $e) { 
+                echo "Lỗi: " .$e->getMessage();
+                echo "<hr>";
+            }
+        }
     }
 ?>

@@ -40,9 +40,9 @@
                     <div class="container-fluid">
                         <div class="navbar-nav">
                             <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
-                            <a class="nav-link" href="#">Chó Cảnh</a>
-                            <a class="nav-link" href="#">Mèo Cảnh</a>
-                            <a class="nav-link" href="#">Phụ kiện</a>
+                            <?php foreach ($listCgr as $cgr): ?>
+                            <a class="nav-link" href="#"><?= $cgr->name ?></a>
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </nav>

@@ -35,6 +35,7 @@
         match($act) {
             '' => (new IndexController()) -> home(),
             'list-pro' => (new ProductController()) -> list(),
+            'add-pro' => (new ProductController()) -> addProduct(),
             
             'list-cgr' => (new CategoryController()) -> list(),
 

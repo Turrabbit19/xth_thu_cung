@@ -6,4 +6,6 @@
     define('DB_USER', 'root');
     define('DB_PASS', '');
     define('DB_NAME', 'xth_thu_cung');
+
+    define('BASE_URL', 'http://localhost/xth-thu-cung/');
 ?>

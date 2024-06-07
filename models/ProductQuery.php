@@ -10,9 +10,9 @@
             $this->pdo = null;
         }
 
-        public function all() {
+        public function top8ProductLatest() {
             try {
-                $sql = "SELECT * FROM product";
+                $sql = "SELECT * FROM product order by id DESC LIMIT 8";
                 $data = $this->pdo->query($sql)->fetchAll();
                 $listPro = [];
                 foreach ($data as $row) {

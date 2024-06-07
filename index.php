@@ -10,6 +10,8 @@
     // Models
     require_once "models/Product.php";
     require_once "models/ProductQuery.php";
+    require_once "models/Category.php";
+    require_once "models/CategoryQuery.php";
 
     // Người dùng hệ thống tương tác website bằng URL
     // ==> tham số act trên URL để hệ thống phân biệt mong muốn người dùng muốn truy cập tới
