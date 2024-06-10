@@ -1,3 +1,5 @@
+   <?php include "views/component/header.php"; ?>
+
    <main class="container">
         <!-- Main content -->
         <div class="shadow bg-light mt-4 ms-4 mb-4 p-4">
@@ -36,7 +38,7 @@
                         <!-- Ảnh -->
                         <!-- Hiển thị ảnh dạng nâng cao -->
                         <div class="bg-danger ratio-1x1">
-                            <img src="<?= BASE_URL . $pro->image_src ?>" alt="" class="mw-100 mh-100">
+                            <img src="<?= BASE_URL . "img/san-pham/" . $pro->image_src ?>" alt="" class="mw-100 mh-100">
                         </div>
                         <!-- Text và button -->
                         <div class="p-2">
@@ -58,3 +60,4 @@
     </main>
         <!-- FOOTER -->
     
+        <?php include "views/component/footer.php"; ?>

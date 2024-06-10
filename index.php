@@ -20,7 +20,6 @@
 
     // Kiểm tra giá trị act để gọi phương thức tương ứng trong Controllers
     // Có thể dùng switch-case
-    include "views/component/header.php";
 
     try {
         match($act) {
@@ -30,5 +29,4 @@
         echo "Lỗi: " . $e->getMessage();
     }
 
-    include "views/component/footer.php";
 ?>

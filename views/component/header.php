@@ -43,6 +43,8 @@
                             <?php foreach ($listCgr as $cgr): ?>
                             <a class="nav-link" href="#"><?= $cgr->name ?></a>
                             <?php endforeach ?>
+
+                            <a class="nav-link" href="#">Liên hệ</a>
                         </div>
                     </div>
                 </nav>

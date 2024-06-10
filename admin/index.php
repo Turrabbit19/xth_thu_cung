@@ -36,8 +36,13 @@
             '' => (new IndexController()) -> home(),
             'list-pro' => (new ProductController()) -> list(),
             'add-pro' => (new ProductController()) -> addProduct(),
+            'edit-pro' => (new ProductController()) -> editProduct($id),
+            'del-pro' => (new ProductController()) -> delProduct($id),
             
             'list-cgr' => (new CategoryController()) -> list(),
+            'add-cgr' => (new CategoryController()) -> addCategory(),
+            'edit-cgr' => (new CategoryController()) -> editCategory($id),
+            'del-cgr' => (new CategoryController()) -> delCategory($id),
 
             'list-acc' => (new AccountController()) -> list(),
 

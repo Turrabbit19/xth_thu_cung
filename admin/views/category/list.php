@@ -4,7 +4,9 @@
     <div class="d-flex justify-content-between align-items-center">
         <form action="" class="ms-4">
             <div class="input-group input-group-sm">
-                <input class="form-control rounded-0 mb-2" type="search" id="search" name="search" placeholder="Nhập từ khóa tìm kiếm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <input class="form-control rounded-0 mb-2" type="search" id="search" name="search"
+                    placeholder="Nhập từ khóa tìm kiếm" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm">
                 <div class="input-group-sm">
                     <button type="button" class="btn btn-secondary rounded-0">
                         <i class="fa fa-search"></i>
@@ -13,10 +15,11 @@
             </div>
         </form>
         <div class="me-4">
-            <button class="btn btn-success">
-                <i class="fa-solid fa-plus"></i>
-                <a href="" class="text-light">Thêm</a>
-            </button>
+            <a href="?act=add-cgr" class="text-light">
+                <button class="btn btn-success">
+                    <i class="fa-solid fa-plus"></i> Thêm
+                </button>
+            </a>
             <button class="btn btn-danger">
                 <i class="fa-solid fa-trash"></i>
                 <a href="" class="text-light">Xóa</a>
@@ -33,39 +36,40 @@
                     <th scope="col">#</th>
                     <th scope="col">Ảnh</th>
                     <th scope="col">Tên danh mục</th>
-                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Số lượng sản phẩm</th>
                     <th scope="col">Hành động</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($listCgr as $cgr) : ?>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td scope="row"><?= $cgr->id ?></td>
-                        <td><img src="..." alt=""></td>
-                        <td>
-                            <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                <?= $cgr->name ?>
-                            </div>
-                        </td>
-                        <td>
-                            <span class="badge bg-danger"><?= $cgr->status ?></span>
-                        </td>
-                        <td>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td scope="row"><?= $cgr->id ?></td>
+                    <td><img src="..." alt=""></td>
+                    <td>
+                        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                            <?= $cgr->name ?>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge bg-primary"><?= $cgr->status ?></span>
+                    </td>
+                    <td>
+                        <a href="?act=edit-cgr&id=<?= $cgr->id?>" class="text-white">
                             <button class="btn btn-warning">
-                                <a href="" class="text-white">
-                                    <i class="fa-solid fa-pen-to-square"></i> Sửa
-                                </a>
+                                <i class="fa-solid fa-pen-to-square"></i> Sửa
                             </button>
+                        </a>
+                        <a href="?act=del-cgr&id=<?= $cgr->id?>"
+                            onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')" class="text-white">
                             <button class="btn btn-danger">
-                                <a href="" class="text-white">
-                                    <i class="fa-solid fa-trash"></i> Xóa
-                                </a>
+                                <i class="fa-solid fa-trash"></i> Xóa
                             </button>
-                        </td>
-                    </tr>
+                        </a>
+                    </td>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

@@ -27,23 +27,13 @@ class ProductController {
             $category_id = $_POST['category_id'] ?? '';
             $status = $_POST['status'] ?? '';
 
-            if (isset($_FILES['image_src']) && $_FILES['image_src']['error'] == 0) {
-                $target_dir = "img/san-pham/";
-
-                $target_file = $target_dir . basename($_FILES['image_src']['name']);
-                if (!move_uploaded_file($_FILES['image_src']['tmp_name'], $target_file)) {
-                    echo "Không thể tải ảnh lên.";
-                    return;
-                }
-                $image_src = $target_file;
-            } else {
-                echo "Ảnh là bắt buộc.";
-                return;
-            }
+            $image_src = $_FILES['image_src']['name'];
 
             try {
-                $this->productQuery->add($name, $description, $price_old, $price_new, $quantity, $image_src, $category_id, $status);
-                echo "Thêm sản phẩm thành công!";
+                $result = $this->productQuery->add($name, $description, $price_old, $price_new, $quantity, $image_src, $category_id, $status);
+                if ($result) {
+                    redirect('success', 'Thêm mới thành công', 'add-pro');
+                }  
             } catch (Exception $e) {
                 echo "Lỗi: " . $e->getMessage();
             }
@@ -51,6 +41,47 @@ class ProductController {
 
         $listCgr = $this->categoryQuery->all();
         include "views/product/add.php";
+    }
+
+    public function editProduct($id) {
+        $id = $_GET['id'] ?? '';
+        if(isset($id) & $id > 0){
+            $only = $this->productQuery->only($id);
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_POST['id'] ?? '';
+            $name = $_POST['name'] ?? '';
+            $description = $_POST['description'] ?? '';
+            $price_old = $_POST['price_old'] ?? '';
+            $price_new = $_POST['price_new'] ?? '';
+            $quantity = $_POST['quantity'] ?? '';
+            $category_id = $_POST['category_id'] ?? '';
+            $status = $_POST['status'] ?? '';
+
+            $image_src = $_FILES['image_src']['name'];
+            try {
+                $this->productQuery->edit($id, $name, $description, $price_old, $price_new, $quantity, $image_src, $category_id, $status);
+                $result = "Sửa thành công";
+                header("location: ?act=list-pro");   
+            } catch (Exception $e) {
+                echo "Lỗi: " . $e->getMessage();
+            }
+        } 
+
+        $listCgr = $this->categoryQuery->all();
+        include "views/product/edit.php";
+    }
+
+    public function delProduct($id) {
+        try {
+            $id = $_GET['id'];
+            $this->productQuery->del($id);
+
+            header("location: ?act=list-pro");   
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
     }
 }
 ?>
