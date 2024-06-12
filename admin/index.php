@@ -1,6 +1,6 @@
 <?php
-    // 1. Nhúng tất cả các file cần dùng vào đây
-    // File commons
+    session_start();
+
     require_once "../commons/env.php";
     require_once "../commons/functions.php";
 
@@ -30,26 +30,27 @@
     // Có thể dùng switch-case
     include "views/component/header.php";
     include "views/component/sidebar.php";
+    
+    if (isset($_SESSION["user_id"]) && isset($_SESSION["user_name"]) && $_SESSION["user_role"] === 0) {
+            match($act) {
+                '' => (new IndexController()) -> home(),
+                'list-pro' => (new ProductController()) -> list(),
+                'add-pro' => (new ProductController()) -> addProduct(),
+                'edit-pro' => (new ProductController()) -> editProduct($id),
+                'del-pro' => (new ProductController()) -> delProduct($id),
+                
+                'list-cgr' => (new CategoryController()) -> list(),
+                'add-cgr' => (new CategoryController()) -> addCategory(),
+                'edit-cgr' => (new CategoryController()) -> editCategory($id),
+                'del-cgr' => (new CategoryController()) -> delCategory($id),
 
-    try {
-        match($act) {
-            '' => (new IndexController()) -> home(),
-            'list-pro' => (new ProductController()) -> list(),
-            'add-pro' => (new ProductController()) -> addProduct(),
-            'edit-pro' => (new ProductController()) -> editProduct($id),
-            'del-pro' => (new ProductController()) -> delProduct($id),
+                'list-acc' => (new AccountController()) -> list(),
+
+                'list-bill' => (new BillController()) -> list(),
+            };
             
-            'list-cgr' => (new CategoryController()) -> list(),
-            'add-cgr' => (new CategoryController()) -> addCategory(),
-            'edit-cgr' => (new CategoryController()) -> editCategory($id),
-            'del-cgr' => (new CategoryController()) -> delCategory($id),
-
-            'list-acc' => (new AccountController()) -> list(),
-
-            'list-bill' => (new BillController()) -> list(),
-        };
-    } catch (Exception $e) {
-        echo "Lỗi: " . $e->getMessage();
+    } else {
+        header('Location: ../index.php');
     }
 
     include "views/component/footer.php";

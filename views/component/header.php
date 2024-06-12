@@ -27,7 +27,12 @@
                 </div>
                 <div class="d-flex justify-content-end align-items-center">
                     <i class="fa-solid fa-user me-2"></i>
-                    Xin chào Trần Khang
+                    <?php if (isset($_SESSION["user_name"])) {?>
+                    Xin chào <?= $_SESSION["user_name"] ?> .
+                    <a class="nav-link text-danger" href="?act=logout">-. Logout</a>
+                    <?php } else {?>
+                    <a class="nav-link" href="?act=login">Login</a>
+                    <?php } ?>
                 </div>
             </div>
             <!-- End header top -->
@@ -41,7 +46,7 @@
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                             <?php foreach ($listCgr as $cgr): ?>
                             <a class="nav-link" href="#"><?= $cgr->name ?></a>
                             <?php endforeach ?>
@@ -57,7 +62,7 @@
                             aria-label="Search">
                     </form>
                     <i class="fa-regular fa-heart me-2"></i>
-                    <i class="fa-solid fa-cart-shopping me-2"></i>
+                    <a href="?act=cart" class="text-dark"><i class="fa-solid fa-cart-shopping me-2"></i></a>
                 </div>
             </div>
             <!-- End header bottom -->

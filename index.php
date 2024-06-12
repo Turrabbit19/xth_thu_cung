@@ -1,29 +1,42 @@
 <?php
-    // 1. Nhúng tất cả các file cần dùng vào đây
-    // File commons
+    session_start();
+    if (isset($_GET['act']) && $_GET['act'] === 'logout') {
+
+        session_unset();
+        session_destroy();
+
+        header('Location: index.php'); 
+        exit;
+    }
+
     require_once "commons/env.php";
     require_once "commons/functions.php";
 
     // Controllers
     require_once "controllers/IndexController.php";
+    require_once "controllers/ProductController.php";
+    require_once "controllers/AccountController.php";
 
     // Models
     require_once "models/Product.php";
     require_once "models/ProductQuery.php";
     require_once "models/Category.php";
     require_once "models/CategoryQuery.php";
+    require_once "models/Account.php";
+    require_once "models/AccountQuery.php";
 
-    // Người dùng hệ thống tương tác website bằng URL
-    // ==> tham số act trên URL để hệ thống phân biệt mong muốn người dùng muốn truy cập tới
     $act = $_GET['act'] ?? "";
     $id = $_GET['id'] ?? "";
-
-    // Kiểm tra giá trị act để gọi phương thức tương ứng trong Controllers
-    // Có thể dùng switch-case
 
     try {
         match($act) {
             '' => (new IndexController()) -> home(),
+
+            'detail-pro' => (new ProductController()) -> detailProduct($id),
+            'cart' => (new ProductController()) -> cart(),
+
+            'login' => (new AccountController()) -> login(),
+            'register' => (new AccountController()) -> register(),
         };
     } catch (Exception $e) {
         echo "Lỗi: " . $e->getMessage();
