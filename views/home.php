@@ -1,9 +1,7 @@
    <?php include "views/component/header.php"; ?>
 
    <main class="container">
-       <!-- Main content -->
        <div class="shadow bg-light mt-4 ms-4 mb-4 p-4">
-           <!-- Slide -->
            <div id="carouselExampleIndicators" class="carousel slide">
                <div class="carousel-indicators">
                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -30,21 +28,16 @@
                    <span class="visually-hidden">Next</span>
                </button>
            </div>
-           <!-- End slide -->
-           <!-- Sản phẩm bán chạy -->
+
            <h3 class="mt-3">Sản phẩm mới nhất</h3>
            <hr>
            <div class="row">
-               <!-- Box sản phẩm -->
                <?php foreach ($listPro as $pro): ?>
                <div class="col-3">
                    <div class="border rounded-3 mb-3 overflow-hidden">
-                       <!-- Ảnh -->
-                       <!-- Hiển thị ảnh dạng nâng cao -->
                        <div class="bg-danger ratio-1x1">
                            <img src="<?= BASE_URL . "img/san-pham/" . $pro->image_src ?>" alt="" class="mw-100 mh-100">
                        </div>
-                       <!-- Text và button -->
                        <div class="p-2">
                            <h5><?= $pro->name ?></h5>
                            <div class="d-flex justify-content-between">
@@ -60,12 +53,8 @@
                    </div>
                </div>
                <?php endforeach; ?>
-
            </div>
-           <!-- Hết sản phẩm -->
        </div>
-       <!-- End main content -->
    </main>
-   <!-- FOOTER -->
 
    <?php include "views/component/footer.php"; ?>

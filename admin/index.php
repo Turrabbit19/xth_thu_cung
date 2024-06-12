@@ -21,13 +21,9 @@
     require_once "models/Bill.php";
     require_once "models/BillQuery.php";
 
-    // Người dùng hệ thống tương tác website bằng URL
-    // ==> tham số act trên URL để hệ thống phân biệt mong muốn người dùng muốn truy cập tới
     $act = $_GET['act'] ?? "";
     $id = $_GET['id'] ?? "";
 
-    // Kiểm tra giá trị act để gọi phương thức tương ứng trong Controllers
-    // Có thể dùng switch-case
     include "views/component/header.php";
     include "views/component/sidebar.php";
     
