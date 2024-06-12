@@ -50,4 +50,5 @@
     }
 
     include "views/component/footer.php";
+    
 ?>
