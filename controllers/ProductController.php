@@ -38,8 +38,6 @@ class ProductController {
                     $_SESSION["myCart"] = [];
                 }
 
-                var_dump($_SESSION["myCart"]);
-
                 $productExists = false;
                 foreach ($_SESSION["myCart"] as &$cartItem) {
                     if ($cartItem['id'] == $product['id']) {

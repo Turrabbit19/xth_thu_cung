@@ -4,8 +4,8 @@
     define('DB_PASS', '');
     define('DB_NAME', 'xth_thu_cung');
 
-    define('BASE_URL', 'http://localhost/xth-thu-cung/');
-    define('BASE_URL_IMG', 'http://localhost/xth-thu-cung/img/san-pham/');
+    define('BASE_URL', 'http://localhost/xth_thu_cung/');
+    define('BASE_URL_IMG', 'http://localhost/xth_thu_cung/img/san-pham/');
 
     function redirect($key = "",$msg = "",$url ="") {
         $_SESSION[$key] = $msg;

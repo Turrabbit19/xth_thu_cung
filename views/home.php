@@ -36,7 +36,7 @@
                <div class="col-3">
                    <div class="border rounded-3 mb-3 overflow-hidden">
                        <div class="bg-danger ratio-1x1">
-                           <img src="<?= BASE_URL . "img/san-pham/" . $pro->image_src ?>" alt="" class="mw-100 mh-100">
+                           <img src="<?= BASE_URL_IMG . $pro->image_src ?>" alt="" class="mw-100 mh-100">
                        </div>
                        <div class="p-2">
                            <h5><?= $pro->name ?></h5>

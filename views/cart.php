@@ -61,7 +61,7 @@
             <input type="checkbox" class="me-3">
             <span class="me-3">Chọn tất cả (<?php
             if(isset($_SESSION["myCart"]) && count($_SESSION["myCart"]) > 0) {
-                count($_SESSION["myCart"]);
+                echo count($_SESSION["myCart"]);
             } else {
                 echo "0";
             }
